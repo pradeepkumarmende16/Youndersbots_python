@@ -1,0 +1,4 @@
+<!-- 21. Write the query to update the salary of John Doe to 55000. Table name employee.--!>
+
+
+UPDATE employees SET salary = 55000 WHERE name = 'Avinash';

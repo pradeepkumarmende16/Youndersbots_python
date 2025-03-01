@@ -1,0 +1,8 @@
+<!--  23. Fetch all employees along with their department names.( Use Joins (INNER JOIN))--!>
+
+
+
+SELECT employees.id, employees.name, employees.email, employees.position, employees.salary, 
+       departments.department_name
+FROM employees
+INNER JOIN departments ON employees.department_id = departments.id;

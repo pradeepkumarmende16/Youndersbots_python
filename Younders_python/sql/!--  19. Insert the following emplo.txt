@@ -1,0 +1,14 @@
+<!--  19. Insert the following employee into the employees table: --!>
+
+
+INSERT INTO employees (name, email, position, salary, hire_date) VALUES
+('Alice Johnson', 'alice@example.com', 'Software Engineer', 60000, '2022-05-10'),
+('Bob Smith', 'bob@example.com', 'Project Manager', 75000, '2021-08-15'),
+('Charlie Brown', 'charlie@example.com', 'Data Analyst', 50000, '2023-03-20'),
+('Diana Ross', 'diana@example.com', 'HR Manager', 65000, '2020-12-05'),
+('Ethan Hunt', 'ethan@example.com', 'Cyber Security Analyst', 70000, '2019-07-25'),
+('Fiona White', 'fiona@example.com', 'Marketing Manager', 55000, '2022-11-10'),
+('George Miller', 'george@example.com', 'DevOps Engineer', 72000, '2021-06-18'),
+('Hannah Lee', 'hannah@example.com', 'Product Manager', 80000, '2020-09-30'),
+('Ian Clark', 'ian@example.com', 'Business Analyst', 62000, '2019-03-12'),
+('Jack Wilson', 'jack@example.com', 'UI/UX Designer', 58000, '2023-07-05');

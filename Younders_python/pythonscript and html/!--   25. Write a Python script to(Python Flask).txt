@@ -1,0 +1,75 @@
+<!--   25. Write a Python script to create html page insert and retrieve, edit and delete
+data from MySQL --!>
+
+
+from flask import Flask, render_template, request, redirect, url_for
+import mysql.connector
+
+app = Flask(__name__)
+
+# Database Connection
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="yourpassword",
+    database="companyDB"
+)
+cursor = db.cursor()
+
+# Create Employees Table (If Not Exists)
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS employees (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        position VARCHAR(50),
+        salary DECIMAL(10,2),
+        hire_date DATE
+    )
+""")
+db.commit()
+
+# Home Page - Show All Employees
+@app.route('/')
+def index():
+    cursor.execute("SELECT * FROM employees")
+    employees = cursor.fetchall()
+    return render_template("index.html", employees=employees)
+
+# Insert Employee
+@app.route('/add', methods=['POST'])
+def add_employee():
+    name = request.form['name']
+    email = request.form['email']
+    position = request.form['position']
+    salary = request.form['salary']
+    hire_date = request.form['hire_date']
+
+    cursor.execute("INSERT INTO employees (name, email, position, salary, hire_date) VALUES (%s, %s, %s, %s, %s)", 
+                   (name, email, position, salary, hire_date))
+    db.commit()
+    return redirect(url_for('index'))
+
+# Edit Employee
+@app.route('/edit/<int:id>', methods=['POST'])
+def edit_employee(id):
+    name = request.form['name']
+    email = request.form['email']
+    position = request.form['position']
+    salary = request.form['salary']
+    hire_date = request.form['hire_date']
+
+    cursor.execute("UPDATE employees SET name=%s, email=%s, position=%s, salary=%s, hire_date=%s WHERE id=%s", 
+                   (name, email, position, salary, hire_date, id))
+    db.commit()
+    return redirect(url_for('index'))
+
+# Delete Employee
+@app.route('/delete/<int:id>')
+def delete_employee(id):
+    cursor.execute("DELETE FROM employees WHERE id=%s", (id,))
+    db.commit()
+    return redirect(url_for('index'))
+
+if __name__ == '__main__':
+    app.run(debug=True)

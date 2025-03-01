@@ -1,0 +1,11 @@
+<!--  18. Write a SQL query to create a table employees with the following fields:  --!>
+
+
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    position VARCHAR(50),
+    salary DECIMAL(10,2),
+    hire_date DATE
+);

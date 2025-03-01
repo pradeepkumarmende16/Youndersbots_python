@@ -1,0 +1,4 @@
+<!-- 22. Delete the employee whose email is mailto:john@example.com.  --!>
+
+DELETE FROM employees WHERE email = 'john@example.com';
+  

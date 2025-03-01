@@ -1,0 +1,17 @@
+<!-- 15. How do you link an external CSS file in HTML. Write a example code?--!>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External CSS Example</title>
+    <link rel="stylesheet" href="styles.css">  <!-- Linking the external CSS file -->
+</head>
+<body>
+
+    <h2>Styled Page</h2>
+    <p>Younder bots conducted drive in our college.</p>
+
+</body>
+</html>

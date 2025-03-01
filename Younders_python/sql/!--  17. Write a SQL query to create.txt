@@ -1,0 +1,4 @@
+<!-- 17. Write a SQL query to create a database named company DB.--!>
+
+
+CREATE DATABASE younderbotscompany;
